@@ -11,6 +11,8 @@ packages=(
 
 import_configs(){
 	local path="$XDG_CONFIG_HOME"
+  
+  chown -R "${USER:-$(id -un)}" ./configs/
 
 	if [ -z $path ]; then
 		mkdir -p ~/.config
