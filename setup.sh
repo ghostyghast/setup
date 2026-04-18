@@ -1,20 +1,13 @@
 #! /bin/bash
 
-if [ "$EUID" -ne 0 ]
-  then echo "Please run as root"
-  exit
-fi
-
 PATH=$PATH:$HOME/.local/bin
 
 packages=(
   "app|curl -sL https://hkdb.github.io/app/getapp.sh | bash"
   "neovim|"
   "npm|"
-  "tree-sitter-cli|npm install -g tree-sitter-cli"
+  "tree-sitter-cli|sudo npm install -g tree-sitter-cli"
 )
-
-
 
 import_configs(){
 	local path="$XDG_CONFIG_HOME"
